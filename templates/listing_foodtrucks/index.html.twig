@@ -14,7 +14,6 @@
         <P> {{ listing.lat }} </p>
         <P> {{ listing.lon }} </p>
         <img src="{{ listing.img}}"/>
-            <script>  addMarker("{{listing.name}}",{{listing.lat}},{{listing.lon}}); </script>
         </li>
     {% endfor %}
     </ul>

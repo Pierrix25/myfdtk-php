@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
         {% block javascripts %}
             {# {{ encore_entry_script_tags('app') }} #}
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhX-qoDaSbIBYqSykD3_nCE-hZylnfjtU&callback=initMap"  async></script>
@@ -40,6 +41,9 @@
                         handleLocationError(false, infoWindow, map.getCenter());
                         }
                     });
+                    {% for listing in listings %}
+                            addMarker("{{listing.name}}",{{listing.lat}},{{listing.lon}}); 
+                    {% endfor %}
                 }
 
                 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -53,7 +57,8 @@
                 }
 
             </script>
-            <script>
+
+             <script>
                 function addMarker(element, lattitude, longitude)  {
                     var marker = new google.maps.Marker({
                     position: { lat: lattitude, lng: longitude },
