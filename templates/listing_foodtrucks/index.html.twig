@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des foodtrucks{% endblock %}
+
+{% block body %}
+<div id="map"></div>
+<div >
+    <h2>Bienvenue  {{ controller_name }}!</h2>
+    <ul >
+    {% for listing in listings %}
+        <li >
+        <h1>{{ listing.name }} </h1>
+        <P> {{ listing.description }} </p>
+        <P> {{ listing.lat }} </p>
+        <P> {{ listing.lon }} </p>
+        <img src="{{ listing.img}}"/>
+            <script>  addMarker("{{listing.name}}",{{listing.lat}},{{listing.lon}}); </script>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+
