@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur votre page foodtruck {{ foodtruck.name }}{% endblock %}
+
+{% block body %}
+<div >
+    <h1>Bienvenue  {{ foodtruck.name }}!</h1>
+        <P> {{ foodtruck.description }} </p>
+        <P> {{ foodtruck.lat }} </p>
+        <P> {{ foodtruck.lon }} </p>
+        <img src="{{ foodtruck.img}}"/>
+</div>
+{% endblock %}
+
+
