@@ -32,8 +32,7 @@
         "symfony/property-access": "5.3.*",
         "symfony/property-info": "5.3.*",
         "symfony/proxy-manager-bridge": "5.3.*",
-        "symfony/requirements-checker": "^2.0",
-        "symfony/runtime": "5.3.*",
+        "symfony/runtime": "^5.3",
         "symfony/security-bundle": "5.3.*",
         "symfony/serializer": "5.3.*",
         "symfony/string": "5.3.*",
@@ -42,6 +41,8 @@
         "symfony/validator": "5.3.*",
         "symfony/web-link": "5.3.*",
         "symfony/yaml": "5.3.*",
+        "symfonycasts/verify-email-bundle": "^1.7",
+        "thibautselingue/local-php-security-checker-installer": "^1.0",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
     },
@@ -81,8 +82,7 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "requirements-checker": "script"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
