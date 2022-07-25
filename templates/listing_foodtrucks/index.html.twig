@@ -76,6 +76,7 @@
         <li >
         <h1>{{ listing.name }} </h1>
         <a class="btn btn-primary" href="/show/{{listing.id}}" role="button">Voir</a>
+        <a class="btn btn-primary" href="/edit/{{listing.id}}" role="button">Modifier</a>
         <img src="{{ listing.img}}"/>
         </li>
     {% endfor %}
