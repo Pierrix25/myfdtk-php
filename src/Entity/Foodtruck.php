@@ -5,13 +5,14 @@ namespace App\Entity;
 use App\Repository\FoodtruckRepository;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=FoodtruckRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
-class Foodtruck implements PasswordAuthenticatedUserInterface
+class Foodtruck implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @ORM\Id
@@ -59,6 +60,11 @@ class Foodtruck implements PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $email;
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
 
     /**
      * @ORM\Column(type="boolean")
@@ -136,7 +142,9 @@ class Foodtruck implements PasswordAuthenticatedUserInterface
     */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+        return array_unique($roles);
     }
 
     public function getPassword(): ?string
