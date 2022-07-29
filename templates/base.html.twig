@@ -24,6 +24,11 @@
                     <h1>Trouve ton foodtruck</h1>
                 </div>
             </div>
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
             <div class="row mt-5">
                 {% block body %}{% endblock %}
             </div>
