@@ -50,6 +50,7 @@ class ListingFoodtrucksController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($myFoodtruck);
             $entityManager->flush();
+            $this->addFlash('success', 'Modification enregistrée !');
             return $this->render('listing_foodtrucks/showFoodtruck.html.twig', [
                 'controller_name' => 'ListingFoodtrucksController', 'foodtruck' => $myFoodtruck
             ]);
